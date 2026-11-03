@@ -1,0 +1,36 @@
+{
+  "id": "krishna",
+  "presence_version": "1.0.0",
+  "look": {
+    "outfit_lock": "blue-violet skin, peacock-feather crown, layered pearl-and-emerald necklaces, cream silk uttariya, gold armlets",
+    "refs": ["refs/krishna_front.png", "refs/krishna_three_quarter.png"]
+  },
+  "presence": {
+    "gaze":   "eyes fixed just past the other person, never into the lens, never darting to them for approval; blink rate low",
+    "mouth":  "jaw closed and at rest between phrases; when speaking, the mouth opens minimally and returns fully closed",
+    "hands":  "hands low and still, out of frame unless the beat requires an object; never raised to explain",
+    "head":   "head level and heavy; no tilt toward camera, no nod on the other person's lines",
+    "timing": "reacts one full beat after the other person finishes, never on the same beat",
+    "weight": "settled before the shot begins, never shifts while speaking, does not lean in",
+    "breath": "breath visible as slow, low movement in the shoulders and necklace; nothing else moves with it"
+  },
+  "negatives": [
+    "brow_raise",
+    "open_mouth_explain",
+    "head_tilt",
+    "gesture_midword",
+    "eyeline_to_lens",
+    "smile_complete",
+    "shifting_while_speaking",
+    "same_beat_reaction",
+    "forward_lean_to_other"
+  ],
+  "gates": {
+    "stillness_max": 3.2,
+    "duplicate_max": 0.04,
+    "expression_max": 0.42,
+    "eyeline_max_deg": 12.0,
+    "accents_min": 1,
+    "variance_min": 0.35
+  }
+}
