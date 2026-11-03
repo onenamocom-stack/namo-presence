@@ -1,0 +1,33 @@
+{
+ "id": "dhritarashtra",
+ "presence_version": "1.0.0",
+ "look": {
+  "outfit_lock": "cream-gold dhoti, green sash, gold-and-cream crown, heavy ringed hands",
+  "refs": [
+   "refs/dhritarashtra_front.png"
+  ]
+ },
+ "presence": {
+  "gaze": "milky unfocused eyes, fixed on nothing, never tracking the speaker",
+  "mouth": "jaw closed, lips pressed; speaks without parting them far",
+  "hands": "hands gripping the throne arms, motionless; rings catch the lamp",
+  "head": "head level and heavy, chin slightly down, no tilt toward camera",
+  "timing": "answers after a long pause, as if from far away",
+  "weight": "seated, never rocks, never leans forward",
+  "breath": "slow deep breath visible in the shoulders only"
+ },
+ "negatives": [
+  "brow_raise",
+  "head_tilt",
+  "gesture_midword",
+  "eyeline_to_lens",
+  "forward_lean_to_other"
+ ],
+ "gates": {
+  "stillness_max": 3.0,
+  "duplicate_max": 0.05,
+  "expression_max": 0.45,
+  "texture_min": 0.15,
+  "accents_min": 1
+ }
+}
