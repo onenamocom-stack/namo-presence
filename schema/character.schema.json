@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/onenamocom-stack/namo-presence/schema/character.schema.json",
+  "title": "Character presence contract",
+  "description": "Look is versioned separately from performance. The presence block is the stable, testable definition of how a character occupies frame. It is enforced by gates, not by prompt wording.",
+  "type": "object",
+  "required": ["id", "presence_version", "presence"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+    "presence_version": {
+      "type": "string",
+      "description": "Bump on any behavioural change. Every render records the version it was made under so a season stays coherent.",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "look": {
+      "type": "object",
+      "description": "Wardrobe, silhouette, reference images. Changing this does NOT change presence_version.",
+      "properties": {
+        "outfit_lock": { "type": "string" },
+        "refs": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "presence": {
+      "type": "object",
+      "description": "Behavioural direction, expressed as observable on-screen facts.",
+      "required": ["gaze", "mouth", "hands", "head", "timing", "weight"],
+      "additionalProperties": false,
+      "properties": {
+        "gaze":   { "$ref": "#/$defs/directive" },
+        "mouth":  { "$ref": "#/$defs/directive" },
+        "hands":  { "$ref": "#/$defs/directive" },
+        "head":   { "$ref": "#/$defs/directive" },
+        "timing": { "$ref": "#/$defs/directive" },
+        "weight": { "$ref": "#/$defs/directive" },
+        "breath": { "$ref": "#/$defs/directive" }
+      }
+    },
+    "negatives": {
+      "type": "array",
+      "description": "Observable behaviours that must never appear. Each maps to a measurable gate.",
+      "items": { "type": "string", "enum": [
+        "brow_raise", "open_mouth_explain", "head_tilt", "gesture_midword",
+        "eyeline_to_lens", "smile_complete", "shifting_while_speaking",
+        "same_beat_reaction", "forward_lean_to_other"
+      ]}
+    },
+    "gates": {
+      "type": "object",
+      "description": "Measured thresholds for this character. Absent = inherit default thresholds.",
+      "properties": {
+        "stillness_max":    { "type": "number", "description": "max mean inter-frame luminance delta inside the character box" },
+        "duplicate_max":    { "type": "number", "description": "max fraction of duplicate frames; above this the clip is rejected" },
+        "expression_max":   { "type": "number", "description": "max expression variance; high = performing" },
+        "eyeline_max_deg":  { "type": "number", "description": "max degrees off the co-actor before it counts as camera-facing" }
+      }
+    }
+  },
+  "$defs": {
+    "directive": {
+      "oneOf": [
+        { "type": "string", "minLength": 3 },
+        {
+          "type": "object",
+          "required": ["do"],
+          "properties": {
+            "do":     { "type": "string" },
+            "never":  { "type": "string" },
+            "beat":   { "type": "string", "description": "where in the timeline this is true" }
+          }
+        }
+      ]
+    }
+  }
+}
