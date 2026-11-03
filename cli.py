@@ -23,11 +23,17 @@ from pipeline.runner import SeasonRunner, MockBackend, ComfyBackend  # noqa: E40
 
 
 def load_chars(path):
+    """Accept a single contract, a list of contracts, a {id: contract} map, or a
+    wrapper {"characters": ...}. A single contract is the common case when a studio
+    starts with one character, so it must not be silently read as a map of characters.
+    """
     raw = json.load(open(path))
     if isinstance(raw, dict) and "characters" in raw:
         raw = raw["characters"]
     if isinstance(raw, list):
         return {c["id"]: c for c in raw}
+    if isinstance(raw, dict) and "id" in raw and "presence" in raw:
+        return {raw["id"]: raw}          # a single contract file
     return raw
 
 
