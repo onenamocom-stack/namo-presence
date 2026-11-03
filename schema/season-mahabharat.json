@@ -1,0 +1,61 @@
+{
+ "season": "mahabharat-s01",
+ "title": "Mahabharat \u2014 The Weight of Dharma",
+ "style_lock": "Photoreal film still, ARRI Alexa 35, 65mm Zeiss Supreme, 1/48s, Kodak Vision3 500T; deep indigo and torch amber, hard edge key from screen-left, everything else two stops down; 9:16 vertical",
+ "episodes": [
+  {
+   "episode": "ep01",
+   "cast": [
+    "krishna",
+    "dhritarashtra"
+   ],
+   "location_text": "Hastinapur throne hall interior: carved sandstone pillars, deep teal drapes, brass lamps, warm dawn shafts",
+   "shots": [
+    {
+     "id": "01",
+     "sec": 5.0,
+     "chars": [
+      "dhritarashtra"
+     ],
+     "frame": "wide establishing, king small on the peacock throne, pillars receding into warm haze",
+     "move": "slow push in"
+    },
+    {
+     "id": "02",
+     "sec": 4.0,
+     "chars": [
+      "dhritarashtra"
+     ],
+     "frame": "extreme close-up on the king's blind milky eyes, shallow depth, gold crown edge in frame",
+     "move": "static"
+    },
+    {
+     "id": "03",
+     "sec": 4.5,
+     "chars": [
+      "krishna"
+     ],
+     "frame": "medium close-up, Krishna in the left third, throne room soft behind",
+     "move": "slow drift right",
+     "beats": [
+      {
+       "from": 0.0,
+       "to": 1.6,
+       "action": "holds, weight settled, eyes past the king"
+      },
+      {
+       "from": 1.6,
+       "to": 3.4,
+       "action": "one breath, jewellery shifts a hair, nothing else"
+      },
+      {
+       "from": 3.4,
+       "to": 4.5,
+       "action": "holds to the end, no cut"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
